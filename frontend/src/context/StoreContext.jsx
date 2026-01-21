@@ -4,7 +4,7 @@ export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
   const [cartItem, setCartItem] = useState({});
-  const url = process.env.BACKEND_URL;
+  const url = import.meta.env.VITE_BACKEND_URL;
   const [token, setToken] = useState("");
   const [food_list, setFoodList] = useState([]);
 
@@ -52,7 +52,8 @@ const StoreContextProvider = (props) => {
   };
 
   const loadCartData = async(token) => {
-    const response = await axios.post(url+"/api/cart/get",{},{headers:{token}})
+    console.log(url);    
+    const response = await axios.post(`${url}/api/cart/get`,{},{headers:{token}})
     setCartItem(response.data.cartData);
   }
 
