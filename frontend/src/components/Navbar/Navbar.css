@@ -8,6 +8,7 @@
 .navbar .logo {
   width: 150px;
 }
+
 .navbar-menu {
   display: flex;
   list-style: none;
@@ -15,10 +16,30 @@
   color: #49557e;
   font-size: 18px;
 }
+
 .navbar-right {
   display: flex;
   align-items: center;
   gap: 40px;
+}
+
+.navbar-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbar-search-input {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 5px 10px;
+  outline: none;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.navbar-search-input:focus {
+  border-color: tomato;
 }
 
 .navbar button {
@@ -58,16 +79,19 @@
   top: -8px;
   right: -8px;
 }
-.navbar-profile{
+
+.navbar-profile {
   position: relative;
 }
-.navbar-profile-dropdown{
+
+.navbar-profile-dropdown {
   position: absolute;
   display: none;
   right: 0;
   z-index: 1;
 }
-.navbar-profile:hover .navbar-profile-dropdown{
+
+.navbar-profile:hover .navbar-profile-dropdown {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -78,16 +102,19 @@
   outline: 2px solid white;
   list-style: none;
 }
-.navbar-profile-dropdown li{
+
+.navbar-profile-dropdown li {
   display: flex;
   align-items: center;
   gap: 10px;
   cursor: pointer;
 }
-.navbar-profile-dropdown img{
+
+.navbar-profile-dropdown img {
   width: 20px;
 }
-.navbar-profile-dropdown li:hover{
+
+.navbar-profile-dropdown li:hover {
   color: tomato;
 }
 
@@ -95,16 +122,20 @@
   .navbar .logo {
     width: 140px;
   }
+
   .navbar-menu {
     gap: 20px;
     font-size: 17px;
   }
+
   .navbar-right {
     gap: 30px;
   }
+
   .navbar-right img {
     width: 22px;
   }
+
   .navbar-right button {
     padding: 8px 25px;
   }
@@ -114,24 +145,61 @@
   .navbar .logo {
     width: 120px;
   }
+
   .navbar-menu {
     gap: 15px;
     font-size: 16px;
   }
+
   .navbar-right {
     gap: 20px;
   }
+
   .navbar-right img {
     width: 20px;
   }
+
   .navbar-right button {
     padding: 7px 20px;
     font-size: 15px;
+  }
+
+  .navbar-search-input {
+    width: 140px;
   }
 }
 
 @media (max-width: 750px) {
   .navbar-menu {
     display: none;
+  }
+
+  .navbar-right {
+    gap: 15px;
+  }
+
+  .navbar-search-input {
+    width: 100px;
+  }
+}
+
+@media (max-width: 450px) {
+  .navbar .logo {
+    width: 100px;
+  }
+
+  .navbar-right {
+    gap: 10px;
+  }
+
+  .navbar-search-input {
+    width: 80px;
+    padding: 5px 8px;
+    font-size: 12px;
+  }
+
+  .navbar-right button {
+    padding: 5px 15px;
+    font-size: 14px;
   }
 }

@@ -4,7 +4,7 @@ export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
   const [cartItem, setCartItem] = useState({});
-  const url = import.meta.env.VITE_BACKEND_URL;
+  const url = import.meta.env.VITE_BACKEND_URL || 'http://localhost:4000';
   const [token, setToken] = useState("");
   const [food_list, setFoodList] = useState([]);
 
@@ -51,9 +51,9 @@ const StoreContextProvider = (props) => {
     setFoodList(response.data.data);
   };
 
-  const loadCartData = async(token) => {
-    console.log(url);    
-    const response = await axios.post(`${url}/api/cart/get`,{},{headers:{token}})
+  const loadCartData = async (token) => {
+    console.log(url);
+    const response = await axios.post(`${url}/api/cart/get`, {}, { headers: { token } })
     setCartItem(response.data.cartData);
   }
 
@@ -68,6 +68,8 @@ const StoreContextProvider = (props) => {
     loadData();
   }, []);
 
+  const [search, setSearch] = useState("");
+
   const contextValue = {
     food_list,
     cartItem,
@@ -78,6 +80,8 @@ const StoreContextProvider = (props) => {
     url,
     token,
     setToken,
+    search,
+    setSearch,
   };
   return (
     <StoreContext.Provider value={contextValue}>
